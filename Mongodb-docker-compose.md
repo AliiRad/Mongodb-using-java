@@ -1,0 +1,34 @@
+# Mongodb-using-java
+Mongodb run using docker . Work with it by "JAVA"
+
+Mongodb docker compose file is here:
+
+
+version: "3.8"
+services:
+    mongodb:
+        image: mongo
+        container_name: mongodb
+        ports: 
+            - 27017:27017
+        volumes: 
+            - data:/data
+        environment: 
+            - MONGO_INITDB_ROOT_USERNAME=rootuser
+            - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    mongo-express:
+        image: mongo-express
+        container_name: mongo-express
+        restart: always
+        ports:
+            - 8081:8081
+        environment:
+            - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
+            - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+            - ME_CONFIG_MONGODB_SERVER=mongodb
+volumes: 
+    data: {} 
+    
+networks:
+    default: 
+        name: mongodb_network
