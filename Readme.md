@@ -1,5 +1,5 @@
 # Mongodb-using-java
-Mongodb run using docker . Work with it by "JAVA"
+Mongodb run using docker . Work with it by JAVA
 
 Mongodb docker compose file is here:
 
